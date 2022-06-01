@@ -159,6 +159,12 @@ else if (correctButton == 3) {
     public String getInterpretation(int [][]dataFrame,double slope){
        //provide interpretation based on your slope analysis
         // Your code here
+        if(slope >=0 && slope <=0.5)
+    return "Steady Can do Better !";
+else if(slope>0.5)
+    return "Getting better !";
+else
+    return "VERY Poor Performance !";
         return "Your Interpretation";
     }
 }
