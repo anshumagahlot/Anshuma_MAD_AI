@@ -78,7 +78,47 @@ public class MainActivity extends AppCompatActivity {
         textView2.setText(operand1 + operator + operand2);
 
       // Your code here, to diplay correct and incorrect options on the buttons
+        int correctAnswer=0;
+int min = 0;
+int max = 3;
 
+int correctButton = (int)Math.floor(Math.random()*(max-min+1)+min);
+
+if (operator == "+")
+    correctAnswer= operand1+operand2;
+else if (operator == "-")
+    correctAnswer= operand1-operand2;
+else if (operator == "*")
+    correctAnswer= operand1*operand2;
+else if (operator == "/")
+    correctAnswer= operand1/operand2;
+
+
+if (correctButton == 0) {
+    button1.setText(Integer.toString(correctAnswer));
+    button2.setText(Integer.toString(correctAnswer+1));
+    button3.setText(Integer.toString(correctAnswer-1));
+    button4.setText(Integer.toString(correctAnswer+2));
+}
+
+else if (correctButton == 1) {
+    button1.setText(Integer.toString(correctAnswer+1));
+    button2.setText(Integer.toString(correctAnswer));
+    button3.setText(Integer.toString(correctAnswer-1));
+    button4.setText(Integer.toString(correctAnswer+2));
+}
+else if (correctButton == 2) {
+    button1.setText(Integer.toString(correctAnswer-1));
+    button2.setText(Integer.toString(correctAnswer+1));
+    button3.setText(Integer.toString(correctAnswer));
+    button4.setText(Integer.toString(correctAnswer+2));
+}
+else if (correctButton == 3) {
+    button1.setText(Integer.toString(correctAnswer+2));
+    button2.setText(Integer.toString(correctAnswer+1));
+    button3.setText(Integer.toString(correctAnswer-1));
+    button4.setText(Integer.toString(correctAnswer));
+}
         if(matchCounter==3){    // if three matches are completed updatee the perfomrance in sharedpreferences
 
             matchCounter=0;
@@ -96,6 +136,10 @@ public class MainActivity extends AppCompatActivity {
         //Computing the sum of score array, which has the 1 or in each index,depending on correct or incorrect answers
         int sum=0;
        // your code here
+       for(int i=0;i<score.length;i++)
+       {
+           sum+=score[i];
+       }
         return sum;
     }
 
